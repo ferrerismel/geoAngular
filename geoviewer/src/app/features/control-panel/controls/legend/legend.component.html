@@ -1,0 +1,7 @@
+<div class="legend" *ngFor="let l of layers">
+  <div class="legend-item" *ngIf="legendUrl(l) as url">
+    <div class="legend-title">{{ l.title }}</div>
+    <img [src]="url" alt="legend for {{ l.title }}" />
+  </div>
+</div>
+
