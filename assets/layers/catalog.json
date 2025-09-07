@@ -1,0 +1,50 @@
+{
+  "baseMaps": [
+    {
+      "id": "osm",
+      "type": "raster",
+      "title": "OpenStreetMap",
+      "provider": "osm",
+      "visible": true
+    }
+  ],
+  "overlays": [
+    {
+      "id": "municipios",
+      "type": "vector",
+      "protocol": "WFS",
+      "title": "Municipios",
+      "url": "https://<GEOSERVER>/geoserver/wfs",
+      "layerName": "workspace:municipios",
+      "outputFormat": "application/json",
+      "style": {
+        "sld": "workspace:municipios_style",
+        "opacity": 0.8
+      },
+      "queryable": true,
+      "visible": true
+    },
+    {
+      "id": "temperatura",
+      "type": "raster",
+      "protocol": "WMST",
+      "title": "Temperatura",
+      "url": "https://<GEOSERVER>/geoserver/wms",
+      "layerName": "workspace:temp",
+      "style": {
+        "sld": "workspace:temp_sld",
+        "opacity": 0.7
+      },
+      "time": {
+        "enabled": true,
+        "default": "2024-01-01T00:00:00Z",
+        "range": {
+          "start": "2023-01-01T00:00:00Z",
+          "end": "2025-01-01T00:00:00Z"
+        }
+      },
+      "visible": false
+    }
+  ]
+}
+

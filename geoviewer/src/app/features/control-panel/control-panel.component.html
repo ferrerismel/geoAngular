@@ -1,0 +1,19 @@
+<div class="panel">
+  <h3>Capas</h3>
+  <ng-container *ngIf="catalog$ | async as catalog">
+    <h4>Overlays</h4>
+    <mat-nav-list>
+      <ng-container *ngFor="let layer of catalog.overlays">
+        <mat-list-item>
+          <mat-slide-toggle [checked]="layer.visible" (change)="toggleLayer(layer, $event)">
+            {{ layer.title }}
+          </mat-slide-toggle>
+        </mat-list-item>
+      </ng-container>
+    </mat-nav-list>
+
+    <h4>Leyenda</h4>
+    <app-legend [layers]="catalog.overlays"></app-legend>
+  </ng-container>
+</div>
+

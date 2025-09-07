@@ -1,0 +1,23 @@
+@use "@angular/material" as mat;
+
+:root {
+  --toolbar-height: 56px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, Arial, sans-serif; }
+
+.app-shell {
+  display: grid;
+  grid-template-rows: var(--toolbar-height) 1fr;
+  grid-template-columns: 320px 1fr;
+  grid-template-areas:
+    "toolbar toolbar"
+    "panel map";
+  height: 100vh;
+}
+
+.toolbar { grid-area: toolbar; }
+.side-panel { grid-area: panel; overflow: auto; }
+.map-area { grid-area: map; }
+
